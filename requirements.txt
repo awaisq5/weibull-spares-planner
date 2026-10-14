@@ -1,0 +1,2 @@
+# Used by Streamlit Community Cloud to run app/streamlit_app.py
+-e .[app]

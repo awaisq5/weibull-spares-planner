@@ -1,8 +1,10 @@
-"""Generate the synthetic sample data in data/.
+"""Generate the synthetic parts register in data/.
 
-Scenario: bearing packs in a fleet of mud motors. True life is Weibull with
-beta 2.4 and eta 1,450 operating hours; most history records are suspensions
-(packs pulled at a rebuild before they failed).
+Scenario: one part number (a mud motor bearing pack) running in four regions.
+Life in circulating hours is Weibull with shape 2.4; the scale differs by
+region, with one harsher region wearing parts out sooner. Some parts are
+scrapped for reasons unrelated to wear (lost in hole, handling damage, an
+obsolete revision); the rest are still in service. Every value is generated.
 """
 
 from pathlib import Path
@@ -10,35 +12,50 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-rng = np.random.default_rng(20251014)
+rng = np.random.default_rng(20230115)
 out = Path(__file__).resolve().parent.parent / "data"
 out.mkdir(exist_ok=True)
 
-BETA, ETA = 2.4, 1450.0
+BETA = 2.4
+REGIONS = {
+    "North Sea": (1650.0, 110),
+    "Middle East": (1500.0, 140),
+    "West Africa": (1100.0, 100),
+    "North America land": (1450.0, 120),
+}
+LIFE_REASONS = ["worn", "washout", "cracked"]
+OTHER_REASONS = ["lost in hole", "handling damage", "obsolete revision"]
 
-# History: 220 past lives. Packs are pulled at rebuilds between 400 and 2,200 hours.
-n = 220
-life = ETA * rng.weibull(BETA, n)
-pulled_at = rng.uniform(400, 2200, n)
-failed = life <= pulled_at
-hours = np.round(np.where(failed, life, pulled_at), 1)
-history = pd.DataFrame(
-    {
-        "unit_id": [f"BP-{i:04d}" for i in range(1, n + 1)],
-        "hours": hours,
-        "status": np.where(failed, "failed", "suspended"),
-    }
-)
-history.to_csv(out / "bearing_pack_history.csv", index=False)
+rows = []
+n = 0
+for region, (eta, count) in REGIONS.items():
+    for _ in range(count):
+        n += 1
+        life = eta * rng.weibull(BETA)
+        age_now = rng.uniform(40, 3000)  # circulating hours accumulated so far, if never scrapped
+        other_at = rng.exponential(9000)  # chance of being scrapped for a reason unrelated to wear
+        end = min(life, other_at, age_now)
+        if end == life:
+            reason = rng.choice(LIFE_REASONS, p=[0.6, 0.25, 0.15])
+        elif end == other_at:
+            reason = rng.choice(OTHER_REASONS, p=[0.5, 0.3, 0.2])
+        else:
+            reason = ""
+        rows.append(
+            {
+                "part_id": f"BP-{n:04d}",
+                "part_number": "PN-20417",
+                "description": "Bearing pack, mud motor",
+                "location": region,
+                "circulating_hours": round(end, 1),
+                "scrap_reason": reason,
+            }
+        )
 
-# Installed base: 140 packs in service, younger units more common.
-fleet = pd.DataFrame(
-    {
-        "unit_id": [f"MM-{i:03d}" for i in range(1, 141)],
-        "age_hours": np.round(rng.gamma(2.2, 380, 140).clip(5, 2400), 1),
-    }
-)
-fleet.to_csv(out / "fleet.csv", index=False)
+df = pd.DataFrame(rows)
+df.to_csv(out / "parts_register.csv", index=False)
 
-print(f"history: {n} lives, {failed.sum()} failures, {(~failed).sum()} suspensions")
-print(f"fleet: {len(fleet)} units, median age {fleet.age_hours.median():.0f} h")
+life = df.scrap_reason.isin(LIFE_REASONS)
+other = df.scrap_reason.isin(OTHER_REASONS)
+in_service = (~life & ~other).sum()
+print(f"{len(df)} parts: {life.sum()} worn out, {other.sum()} scrapped for other reasons, {in_service} in service")

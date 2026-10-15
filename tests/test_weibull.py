@@ -5,10 +5,14 @@ import pytest
 from scipy import stats
 
 from weibull_spares import (
+    CostInputs,
     Weibull,
+    compare_locations,
+    event_plan,
     fit_mle,
     fit_rank_regression,
     lead_time_demand,
+    lifetime_cost,
     median_ranks,
     optimal_replacement_age,
     poisson_binomial_pmf,
@@ -16,7 +20,7 @@ from weibull_spares import (
     stock_for_service_level,
     stock_options,
 )
-from weibull_spares.data import DataError, load_history
+from weibull_spares.data import DataError, load_parts
 
 
 def censored_sample(beta, eta, n, censor_at, seed=1):
@@ -140,14 +144,71 @@ class TestStocking:
 
 
 class TestData:
-    def test_reads_status_words(self):
-        h = load_history(io.StringIO("unit_id,hours,status\nA,100,failed\nB,200,Suspended\n"))
-        assert h.failed.tolist() == [True, False]
+    HEADER = "part_id,part_number,location,circulating_hours,scrap_reason\n"
+
+    def test_scrap_reasons_decide_censoring(self):
+        p = load_parts(
+            io.StringIO(self.HEADER + "A,PN,X,100,worn\nB,PN,X,200,lost in hole\nC,PN,X,300,\nD,PN,X,400,Cracked\n")
+        )
+        assert p.failed.tolist() == [True, False, False, True]
+        assert p.in_service.tolist() == [False, False, True, False]
+        assert p.censoring.tolist() == [0, 1, 1, 0]
+
+    def test_accepts_matlab_censoring_flags(self):
+        p = load_parts(
+            io.StringIO("part_id,part_number,location,circulating_hours,censored\nA,PN,X,100,0\nB,PN,X,200,1\n")
+        )
+        assert p.failed.tolist() == [True, False]
+
+    def test_asks_about_unknown_scrap_reasons_instead_of_guessing(self):
+        with pytest.raises(DataError, match="'bent shaft'"):
+            load_parts(io.StringIO(self.HEADER + "A,PN,X,100,bent shaft\n"))
 
     def test_points_at_the_bad_row(self):
-        with pytest.raises(DataError, match="row 3"):
-            load_history(io.StringIO("unit_id,hours,status\nA,100,failed\nB,-5,failed\n"))
+        with pytest.raises(DataError, match="Row 3"):
+            load_parts(io.StringIO(self.HEADER + "A,PN,X,100,worn\nB,PN,X,-5,worn\n"))
 
     def test_names_missing_columns(self):
-        with pytest.raises(DataError, match="status"):
-            load_history(io.StringIO("unit_id,hours\nA,100\n"))
+        with pytest.raises(DataError, match="location"):
+            load_parts(io.StringIO("part_id,part_number,circulating_hours,scrap_reason\nA,PN,100,worn\n"))
+
+
+class TestLocations:
+    def test_detects_a_location_where_parts_wear_out_sooner(self):
+        t1, d1 = censored_sample(2.4, 1600, 300, 3000, seed=21)
+        t2, d2 = censored_sample(2.4, 900, 300, 3000, seed=22)
+        c = compare_locations(np.r_[t1, t2], np.r_[d1, d2], np.array(["A"] * 300 + ["B"] * 300))
+        assert c.differs
+        fits = {loc.location: loc.fit.model.eta for loc in c.locations}
+        assert fits["B"] < fits["A"] * 0.7
+
+    def test_does_not_flag_the_same_life_in_two_places(self):
+        t1, d1 = censored_sample(2.4, 1400, 250, 3000, seed=31)
+        t2, d2 = censored_sample(2.4, 1400, 250, 3000, seed=32)
+        c = compare_locations(np.r_[t1, t2], np.r_[d1, d2], np.array(["A"] * 250 + ["B"] * 250))
+        assert not c.differs
+
+    def test_leaves_out_locations_with_too_few_failures(self):
+        t, d = censored_sample(2.4, 1400, 200, 3000, seed=41)
+        loc = np.array(["A"] * 197 + ["B"] * 3)
+        d[-3:] = False
+        c = compare_locations(t, d, loc)
+        assert next(x for x in c.locations if x.location == "B").fit is None
+
+
+class TestCosting:
+    def test_cost_per_hour_spreads_the_event_cost_over_mean_life(self):
+        m = Weibull(2.0, 1000.0)
+        lc = lifetime_cost(m, CostInputs(4000, 1000, 200), np.full(50, 100.0), 500, runs=2000)
+        assert lc.cost_per_hour == pytest.approx(4800 / m.mean_life())
+
+    def test_expected_events_include_replacements_wearing_out(self):
+        m = Weibull(1.0, 100.0)  # random failures: about horizon / mean life events per part
+        lc = lifetime_cost(m, CostInputs(1), np.zeros(200), 300, runs=2000)
+        assert lc.expected_events / 200 == pytest.approx(3.0, rel=0.05)
+
+    def test_event_plan_puts_the_oldest_parts_first_when_parts_wear_out(self):
+        ages = np.array([100.0, 1500.0, 600.0])
+        plan = event_plan(Weibull(3.0, 1200.0), ages, 200, 4)
+        assert plan.next_up[0] == 1
+        assert plan.per_period.sum() <= len(ages)

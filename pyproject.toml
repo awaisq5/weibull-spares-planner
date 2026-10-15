@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "weibull-spares"
 version = "1.0.0"
-description = "Weibull life analysis with suspensions, fleet failure forecasts and spare-parts stocking."
+description = "Lifetime analysis for parts with censored field data: Weibull fits from scrap reasons, location trends, lifetime cost, maintenance events and spares."
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Awais Hanif Qurashi" }]

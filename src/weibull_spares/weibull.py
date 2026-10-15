@@ -19,7 +19,13 @@ Method = Literal["mle", "rank_regression"]
 
 @dataclass(frozen=True)
 class Weibull:
-    """Weibull life distribution with shape ``beta`` and scale ``eta`` (characteristic life)."""
+    """Weibull life distribution.
+
+    ``beta`` is the **shape**: below 1 the failure rate falls with age, around 1
+    it is constant, above 1 parts wear out. ``eta`` is the **scale** or
+    characteristic life: the age by which 63.2% of parts have failed.
+    MATLAB's ``wblfit`` returns the same two numbers in the order [scale, shape].
+    """
 
     beta: float
     eta: float
@@ -82,7 +88,7 @@ class Fit:
     failures: int
     suspensions: int
     log_likelihood: float
-    #: 90% two-sided bounds, keyed by "beta" and "eta". Only for MLE.
+    #: Two-sided confidence bounds (95% by default), keyed by "beta" and "eta". Only for MLE.
     bounds: dict[str, tuple[float, float]] = field(default_factory=dict)
     #: Points for a Weibull probability plot: time and median-rank unreliability per failure.
     plot_points: tuple[np.ndarray, np.ndarray] | None = None
@@ -106,7 +112,7 @@ def log_likelihood(model: Weibull, times: np.ndarray, failed: np.ndarray) -> flo
     return float(ll_fail.sum() - (z**model.beta).sum())
 
 
-def fit_mle(times: ArrayLike, failed: ArrayLike, confidence: float = 0.90) -> Fit:
+def fit_mle(times: ArrayLike, failed: ArrayLike, confidence: float = 0.95) -> Fit:
     """Maximum likelihood fit with right-censored data.
 
     Uses the profile likelihood: for a given beta the best eta has a closed form,
@@ -125,7 +131,7 @@ def fit_mle(times: ArrayLike, failed: ArrayLike, confidence: float = 0.90) -> Fi
         return (w * log_u).sum() / w.sum() - 1 / beta - mean_log_fail
 
     beta = optimize.brentq(profile, 1e-3, 100.0, xtol=1e-12)
-    eta = scale * ((u**beta).sum() / r) ** (1 / beta)
+    eta = float(scale * ((u**beta).sum() / r) ** (1 / beta))
     model = Weibull(beta, eta)
 
     bounds = _fisher_bounds(model, t, d, confidence)

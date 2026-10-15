@@ -1,0 +1,471 @@
+part_id,part_number,description,location,circulating_hours,scrap_reason
+BP-0001,PN-20417,"Bearing pack, mud motor",North Sea,1248.6,worn
+BP-0002,PN-20417,"Bearing pack, mud motor",North Sea,526.4,
+BP-0003,PN-20417,"Bearing pack, mud motor",North Sea,334.8,
+BP-0004,PN-20417,"Bearing pack, mud motor",North Sea,653.6,worn
+BP-0005,PN-20417,"Bearing pack, mud motor",North Sea,326.4,
+BP-0006,PN-20417,"Bearing pack, mud motor",North Sea,2159.0,
+BP-0007,PN-20417,"Bearing pack, mud motor",North Sea,81.2,
+BP-0008,PN-20417,"Bearing pack, mud motor",North Sea,1551.4,
+BP-0009,PN-20417,"Bearing pack, mud motor",North Sea,1091.3,
+BP-0010,PN-20417,"Bearing pack, mud motor",North Sea,1681.6,
+BP-0011,PN-20417,"Bearing pack, mud motor",North Sea,1205.4,
+BP-0012,PN-20417,"Bearing pack, mud motor",North Sea,296.7,
+BP-0013,PN-20417,"Bearing pack, mud motor",North Sea,1905.7,washout
+BP-0014,PN-20417,"Bearing pack, mud motor",North Sea,1375.7,worn
+BP-0015,PN-20417,"Bearing pack, mud motor",North Sea,1041.3,washout
+BP-0016,PN-20417,"Bearing pack, mud motor",North Sea,1492.9,
+BP-0017,PN-20417,"Bearing pack, mud motor",North Sea,577.8,
+BP-0018,PN-20417,"Bearing pack, mud motor",North Sea,654.8,worn
+BP-0019,PN-20417,"Bearing pack, mud motor",North Sea,613.6,worn
+BP-0020,PN-20417,"Bearing pack, mud motor",North Sea,467.0,
+BP-0021,PN-20417,"Bearing pack, mud motor",North Sea,852.0,
+BP-0022,PN-20417,"Bearing pack, mud motor",North Sea,314.4,
+BP-0023,PN-20417,"Bearing pack, mud motor",North Sea,904.9,washout
+BP-0024,PN-20417,"Bearing pack, mud motor",North Sea,1917.1,washout
+BP-0025,PN-20417,"Bearing pack, mud motor",North Sea,1531.0,worn
+BP-0026,PN-20417,"Bearing pack, mud motor",North Sea,782.1,worn
+BP-0027,PN-20417,"Bearing pack, mud motor",North Sea,384.9,
+BP-0028,PN-20417,"Bearing pack, mud motor",North Sea,2085.8,cracked
+BP-0029,PN-20417,"Bearing pack, mud motor",North Sea,955.8,
+BP-0030,PN-20417,"Bearing pack, mud motor",North Sea,1206.3,cracked
+BP-0031,PN-20417,"Bearing pack, mud motor",North Sea,384.0,worn
+BP-0032,PN-20417,"Bearing pack, mud motor",North Sea,899.6,handling damage
+BP-0033,PN-20417,"Bearing pack, mud motor",North Sea,1326.9,worn
+BP-0034,PN-20417,"Bearing pack, mud motor",North Sea,807.6,cracked
+BP-0035,PN-20417,"Bearing pack, mud motor",North Sea,2242.0,worn
+BP-0036,PN-20417,"Bearing pack, mud motor",North Sea,1162.5,
+BP-0037,PN-20417,"Bearing pack, mud motor",North Sea,1651.7,worn
+BP-0038,PN-20417,"Bearing pack, mud motor",North Sea,341.9,
+BP-0039,PN-20417,"Bearing pack, mud motor",North Sea,73.4,
+BP-0040,PN-20417,"Bearing pack, mud motor",North Sea,456.5,
+BP-0041,PN-20417,"Bearing pack, mud motor",North Sea,672.3,obsolete revision
+BP-0042,PN-20417,"Bearing pack, mud motor",North Sea,1576.0,cracked
+BP-0043,PN-20417,"Bearing pack, mud motor",North Sea,1418.3,washout
+BP-0044,PN-20417,"Bearing pack, mud motor",North Sea,2052.8,worn
+BP-0045,PN-20417,"Bearing pack, mud motor",North Sea,2906.8,
+BP-0046,PN-20417,"Bearing pack, mud motor",North Sea,1645.8,cracked
+BP-0047,PN-20417,"Bearing pack, mud motor",North Sea,635.4,
+BP-0048,PN-20417,"Bearing pack, mud motor",North Sea,459.4,
+BP-0049,PN-20417,"Bearing pack, mud motor",North Sea,211.0,
+BP-0050,PN-20417,"Bearing pack, mud motor",North Sea,1156.3,worn
+BP-0051,PN-20417,"Bearing pack, mud motor",North Sea,183.8,
+BP-0052,PN-20417,"Bearing pack, mud motor",North Sea,1506.7,
+BP-0053,PN-20417,"Bearing pack, mud motor",North Sea,1349.8,worn
+BP-0054,PN-20417,"Bearing pack, mud motor",North Sea,1403.5,worn
+BP-0055,PN-20417,"Bearing pack, mud motor",North Sea,2169.8,cracked
+BP-0056,PN-20417,"Bearing pack, mud motor",North Sea,1436.6,worn
+BP-0057,PN-20417,"Bearing pack, mud motor",North Sea,420.3,worn
+BP-0058,PN-20417,"Bearing pack, mud motor",North Sea,931.9,
+BP-0059,PN-20417,"Bearing pack, mud motor",North Sea,670.1,worn
+BP-0060,PN-20417,"Bearing pack, mud motor",North Sea,57.1,
+BP-0061,PN-20417,"Bearing pack, mud motor",North Sea,1285.0,cracked
+BP-0062,PN-20417,"Bearing pack, mud motor",North Sea,642.5,worn
+BP-0063,PN-20417,"Bearing pack, mud motor",North Sea,2058.6,cracked
+BP-0064,PN-20417,"Bearing pack, mud motor",North Sea,975.2,worn
+BP-0065,PN-20417,"Bearing pack, mud motor",North Sea,1015.1,
+BP-0066,PN-20417,"Bearing pack, mud motor",North Sea,1162.3,washout
+BP-0067,PN-20417,"Bearing pack, mud motor",North Sea,1555.9,worn
+BP-0068,PN-20417,"Bearing pack, mud motor",North Sea,704.2,
+BP-0069,PN-20417,"Bearing pack, mud motor",North Sea,448.2,worn
+BP-0070,PN-20417,"Bearing pack, mud motor",North Sea,1283.8,worn
+BP-0071,PN-20417,"Bearing pack, mud motor",North Sea,2403.1,washout
+BP-0072,PN-20417,"Bearing pack, mud motor",North Sea,1551.8,worn
+BP-0073,PN-20417,"Bearing pack, mud motor",North Sea,914.4,worn
+BP-0074,PN-20417,"Bearing pack, mud motor",North Sea,802.4,cracked
+BP-0075,PN-20417,"Bearing pack, mud motor",North Sea,1381.7,worn
+BP-0076,PN-20417,"Bearing pack, mud motor",North Sea,806.7,
+BP-0077,PN-20417,"Bearing pack, mud motor",North Sea,1951.1,worn
+BP-0078,PN-20417,"Bearing pack, mud motor",North Sea,1858.9,worn
+BP-0079,PN-20417,"Bearing pack, mud motor",North Sea,1022.3,lost in hole
+BP-0080,PN-20417,"Bearing pack, mud motor",North Sea,1230.0,
+BP-0081,PN-20417,"Bearing pack, mud motor",North Sea,1184.8,worn
+BP-0082,PN-20417,"Bearing pack, mud motor",North Sea,360.1,worn
+BP-0083,PN-20417,"Bearing pack, mud motor",North Sea,407.3,worn
+BP-0084,PN-20417,"Bearing pack, mud motor",North Sea,1771.2,
+BP-0085,PN-20417,"Bearing pack, mud motor",North Sea,1491.6,worn
+BP-0086,PN-20417,"Bearing pack, mud motor",North Sea,471.4,worn
+BP-0087,PN-20417,"Bearing pack, mud motor",North Sea,537.8,worn
+BP-0088,PN-20417,"Bearing pack, mud motor",North Sea,330.8,
+BP-0089,PN-20417,"Bearing pack, mud motor",North Sea,1556.7,worn
+BP-0090,PN-20417,"Bearing pack, mud motor",North Sea,1383.3,
+BP-0091,PN-20417,"Bearing pack, mud motor",North Sea,1571.0,
+BP-0092,PN-20417,"Bearing pack, mud motor",North Sea,1105.6,washout
+BP-0093,PN-20417,"Bearing pack, mud motor",North Sea,474.6,worn
+BP-0094,PN-20417,"Bearing pack, mud motor",North Sea,65.0,
+BP-0095,PN-20417,"Bearing pack, mud motor",North Sea,1155.4,
+BP-0096,PN-20417,"Bearing pack, mud motor",North Sea,453.8,handling damage
+BP-0097,PN-20417,"Bearing pack, mud motor",North Sea,518.7,
+BP-0098,PN-20417,"Bearing pack, mud motor",North Sea,850.8,
+BP-0099,PN-20417,"Bearing pack, mud motor",North Sea,1607.5,worn
+BP-0100,PN-20417,"Bearing pack, mud motor",North Sea,1482.9,worn
+BP-0101,PN-20417,"Bearing pack, mud motor",North Sea,280.1,
+BP-0102,PN-20417,"Bearing pack, mud motor",North Sea,1704.9,worn
+BP-0103,PN-20417,"Bearing pack, mud motor",North Sea,1619.9,worn
+BP-0104,PN-20417,"Bearing pack, mud motor",North Sea,911.2,worn
+BP-0105,PN-20417,"Bearing pack, mud motor",North Sea,2141.1,
+BP-0106,PN-20417,"Bearing pack, mud motor",North Sea,845.5,worn
+BP-0107,PN-20417,"Bearing pack, mud motor",North Sea,1291.6,cracked
+BP-0108,PN-20417,"Bearing pack, mud motor",North Sea,688.7,
+BP-0109,PN-20417,"Bearing pack, mud motor",North Sea,1165.0,
+BP-0110,PN-20417,"Bearing pack, mud motor",North Sea,550.6,lost in hole
+BP-0111,PN-20417,"Bearing pack, mud motor",Middle East,843.6,washout
+BP-0112,PN-20417,"Bearing pack, mud motor",Middle East,835.3,washout
+BP-0113,PN-20417,"Bearing pack, mud motor",Middle East,693.6,lost in hole
+BP-0114,PN-20417,"Bearing pack, mud motor",Middle East,816.6,
+BP-0115,PN-20417,"Bearing pack, mud motor",Middle East,1461.3,worn
+BP-0116,PN-20417,"Bearing pack, mud motor",Middle East,634.8,
+BP-0117,PN-20417,"Bearing pack, mud motor",Middle East,1159.7,worn
+BP-0118,PN-20417,"Bearing pack, mud motor",Middle East,2327.4,washout
+BP-0119,PN-20417,"Bearing pack, mud motor",Middle East,249.0,
+BP-0120,PN-20417,"Bearing pack, mud motor",Middle East,1510.1,cracked
+BP-0121,PN-20417,"Bearing pack, mud motor",Middle East,239.5,worn
+BP-0122,PN-20417,"Bearing pack, mud motor",Middle East,2149.6,worn
+BP-0123,PN-20417,"Bearing pack, mud motor",Middle East,833.5,worn
+BP-0124,PN-20417,"Bearing pack, mud motor",Middle East,238.4,
+BP-0125,PN-20417,"Bearing pack, mud motor",Middle East,1100.1,washout
+BP-0126,PN-20417,"Bearing pack, mud motor",Middle East,64.2,
+BP-0127,PN-20417,"Bearing pack, mud motor",Middle East,2377.6,
+BP-0128,PN-20417,"Bearing pack, mud motor",Middle East,157.4,
+BP-0129,PN-20417,"Bearing pack, mud motor",Middle East,1204.9,worn
+BP-0130,PN-20417,"Bearing pack, mud motor",Middle East,710.8,worn
+BP-0131,PN-20417,"Bearing pack, mud motor",Middle East,560.5,
+BP-0132,PN-20417,"Bearing pack, mud motor",Middle East,82.8,
+BP-0133,PN-20417,"Bearing pack, mud motor",Middle East,408.0,worn
+BP-0134,PN-20417,"Bearing pack, mud motor",Middle East,1615.4,cracked
+BP-0135,PN-20417,"Bearing pack, mud motor",Middle East,51.9,lost in hole
+BP-0136,PN-20417,"Bearing pack, mud motor",Middle East,1048.5,cracked
+BP-0137,PN-20417,"Bearing pack, mud motor",Middle East,1942.5,cracked
+BP-0138,PN-20417,"Bearing pack, mud motor",Middle East,1358.6,washout
+BP-0139,PN-20417,"Bearing pack, mud motor",Middle East,1467.6,washout
+BP-0140,PN-20417,"Bearing pack, mud motor",Middle East,1809.2,worn
+BP-0141,PN-20417,"Bearing pack, mud motor",Middle East,1137.9,worn
+BP-0142,PN-20417,"Bearing pack, mud motor",Middle East,2294.3,
+BP-0143,PN-20417,"Bearing pack, mud motor",Middle East,865.4,worn
+BP-0144,PN-20417,"Bearing pack, mud motor",Middle East,892.7,cracked
+BP-0145,PN-20417,"Bearing pack, mud motor",Middle East,810.5,lost in hole
+BP-0146,PN-20417,"Bearing pack, mud motor",Middle East,564.3,worn
+BP-0147,PN-20417,"Bearing pack, mud motor",Middle East,1099.7,
+BP-0148,PN-20417,"Bearing pack, mud motor",Middle East,1340.8,washout
+BP-0149,PN-20417,"Bearing pack, mud motor",Middle East,665.8,lost in hole
+BP-0150,PN-20417,"Bearing pack, mud motor",Middle East,1413.9,worn
+BP-0151,PN-20417,"Bearing pack, mud motor",Middle East,2019.6,
+BP-0152,PN-20417,"Bearing pack, mud motor",Middle East,197.5,washout
+BP-0153,PN-20417,"Bearing pack, mud motor",Middle East,1181.8,
+BP-0154,PN-20417,"Bearing pack, mud motor",Middle East,823.9,cracked
+BP-0155,PN-20417,"Bearing pack, mud motor",Middle East,56.3,
+BP-0156,PN-20417,"Bearing pack, mud motor",Middle East,49.6,
+BP-0157,PN-20417,"Bearing pack, mud motor",Middle East,937.9,worn
+BP-0158,PN-20417,"Bearing pack, mud motor",Middle East,891.7,worn
+BP-0159,PN-20417,"Bearing pack, mud motor",Middle East,729.5,
+BP-0160,PN-20417,"Bearing pack, mud motor",Middle East,1663.5,worn
+BP-0161,PN-20417,"Bearing pack, mud motor",Middle East,1385.8,
+BP-0162,PN-20417,"Bearing pack, mud motor",Middle East,1294.7,cracked
+BP-0163,PN-20417,"Bearing pack, mud motor",Middle East,1231.8,obsolete revision
+BP-0164,PN-20417,"Bearing pack, mud motor",Middle East,892.7,worn
+BP-0165,PN-20417,"Bearing pack, mud motor",Middle East,1036.4,cracked
+BP-0166,PN-20417,"Bearing pack, mud motor",Middle East,561.1,worn
+BP-0167,PN-20417,"Bearing pack, mud motor",Middle East,316.1,
+BP-0168,PN-20417,"Bearing pack, mud motor",Middle East,558.3,washout
+BP-0169,PN-20417,"Bearing pack, mud motor",Middle East,1227.5,cracked
+BP-0170,PN-20417,"Bearing pack, mud motor",Middle East,445.1,worn
+BP-0171,PN-20417,"Bearing pack, mud motor",Middle East,417.2,
+BP-0172,PN-20417,"Bearing pack, mud motor",Middle East,889.2,washout
+BP-0173,PN-20417,"Bearing pack, mud motor",Middle East,374.8,
+BP-0174,PN-20417,"Bearing pack, mud motor",Middle East,321.0,lost in hole
+BP-0175,PN-20417,"Bearing pack, mud motor",Middle East,439.6,
+BP-0176,PN-20417,"Bearing pack, mud motor",Middle East,754.1,
+BP-0177,PN-20417,"Bearing pack, mud motor",Middle East,196.7,
+BP-0178,PN-20417,"Bearing pack, mud motor",Middle East,877.2,worn
+BP-0179,PN-20417,"Bearing pack, mud motor",Middle East,283.6,
+BP-0180,PN-20417,"Bearing pack, mud motor",Middle East,1142.4,worn
+BP-0181,PN-20417,"Bearing pack, mud motor",Middle East,970.0,worn
+BP-0182,PN-20417,"Bearing pack, mud motor",Middle East,735.4,handling damage
+BP-0183,PN-20417,"Bearing pack, mud motor",Middle East,681.2,worn
+BP-0184,PN-20417,"Bearing pack, mud motor",Middle East,766.4,worn
+BP-0185,PN-20417,"Bearing pack, mud motor",Middle East,1132.6,washout
+BP-0186,PN-20417,"Bearing pack, mud motor",Middle East,412.2,worn
+BP-0187,PN-20417,"Bearing pack, mud motor",Middle East,1348.1,washout
+BP-0188,PN-20417,"Bearing pack, mud motor",Middle East,1185.7,
+BP-0189,PN-20417,"Bearing pack, mud motor",Middle East,394.5,
+BP-0190,PN-20417,"Bearing pack, mud motor",Middle East,1038.3,
+BP-0191,PN-20417,"Bearing pack, mud motor",Middle East,769.4,worn
+BP-0192,PN-20417,"Bearing pack, mud motor",Middle East,1772.9,worn
+BP-0193,PN-20417,"Bearing pack, mud motor",Middle East,1264.8,
+BP-0194,PN-20417,"Bearing pack, mud motor",Middle East,357.5,lost in hole
+BP-0195,PN-20417,"Bearing pack, mud motor",Middle East,2774.5,
+BP-0196,PN-20417,"Bearing pack, mud motor",Middle East,1774.6,washout
+BP-0197,PN-20417,"Bearing pack, mud motor",Middle East,1247.8,
+BP-0198,PN-20417,"Bearing pack, mud motor",Middle East,1566.7,worn
+BP-0199,PN-20417,"Bearing pack, mud motor",Middle East,1534.4,worn
+BP-0200,PN-20417,"Bearing pack, mud motor",Middle East,2182.0,handling damage
+BP-0201,PN-20417,"Bearing pack, mud motor",Middle East,1035.7,lost in hole
+BP-0202,PN-20417,"Bearing pack, mud motor",Middle East,1154.4,washout
+BP-0203,PN-20417,"Bearing pack, mud motor",Middle East,561.6,
+BP-0204,PN-20417,"Bearing pack, mud motor",Middle East,1003.6,
+BP-0205,PN-20417,"Bearing pack, mud motor",Middle East,1221.9,
+BP-0206,PN-20417,"Bearing pack, mud motor",Middle East,1009.7,worn
+BP-0207,PN-20417,"Bearing pack, mud motor",Middle East,340.0,
+BP-0208,PN-20417,"Bearing pack, mud motor",Middle East,1543.0,
+BP-0209,PN-20417,"Bearing pack, mud motor",Middle East,2196.6,
+BP-0210,PN-20417,"Bearing pack, mud motor",Middle East,927.6,washout
+BP-0211,PN-20417,"Bearing pack, mud motor",Middle East,1071.3,worn
+BP-0212,PN-20417,"Bearing pack, mud motor",Middle East,465.9,
+BP-0213,PN-20417,"Bearing pack, mud motor",Middle East,155.9,
+BP-0214,PN-20417,"Bearing pack, mud motor",Middle East,595.4,
+BP-0215,PN-20417,"Bearing pack, mud motor",Middle East,1709.8,worn
+BP-0216,PN-20417,"Bearing pack, mud motor",Middle East,335.3,
+BP-0217,PN-20417,"Bearing pack, mud motor",Middle East,1195.7,worn
+BP-0218,PN-20417,"Bearing pack, mud motor",Middle East,2141.4,
+BP-0219,PN-20417,"Bearing pack, mud motor",Middle East,112.1,
+BP-0220,PN-20417,"Bearing pack, mud motor",Middle East,1424.6,washout
+BP-0221,PN-20417,"Bearing pack, mud motor",Middle East,1527.4,worn
+BP-0222,PN-20417,"Bearing pack, mud motor",Middle East,1551.9,cracked
+BP-0223,PN-20417,"Bearing pack, mud motor",Middle East,2270.2,
+BP-0224,PN-20417,"Bearing pack, mud motor",Middle East,1719.5,
+BP-0225,PN-20417,"Bearing pack, mud motor",Middle East,1136.4,washout
+BP-0226,PN-20417,"Bearing pack, mud motor",Middle East,141.2,
+BP-0227,PN-20417,"Bearing pack, mud motor",Middle East,358.5,worn
+BP-0228,PN-20417,"Bearing pack, mud motor",Middle East,287.6,
+BP-0229,PN-20417,"Bearing pack, mud motor",Middle East,745.6,worn
+BP-0230,PN-20417,"Bearing pack, mud motor",Middle East,1649.9,washout
+BP-0231,PN-20417,"Bearing pack, mud motor",Middle East,546.0,
+BP-0232,PN-20417,"Bearing pack, mud motor",Middle East,93.4,
+BP-0233,PN-20417,"Bearing pack, mud motor",Middle East,145.1,
+BP-0234,PN-20417,"Bearing pack, mud motor",Middle East,998.4,washout
+BP-0235,PN-20417,"Bearing pack, mud motor",Middle East,754.7,handling damage
+BP-0236,PN-20417,"Bearing pack, mud motor",Middle East,766.3,obsolete revision
+BP-0237,PN-20417,"Bearing pack, mud motor",Middle East,700.0,
+BP-0238,PN-20417,"Bearing pack, mud motor",Middle East,977.0,washout
+BP-0239,PN-20417,"Bearing pack, mud motor",Middle East,614.9,
+BP-0240,PN-20417,"Bearing pack, mud motor",Middle East,679.8,
+BP-0241,PN-20417,"Bearing pack, mud motor",Middle East,679.3,worn
+BP-0242,PN-20417,"Bearing pack, mud motor",Middle East,920.4,
+BP-0243,PN-20417,"Bearing pack, mud motor",Middle East,2374.3,worn
+BP-0244,PN-20417,"Bearing pack, mud motor",Middle East,1405.0,
+BP-0245,PN-20417,"Bearing pack, mud motor",Middle East,1256.3,cracked
+BP-0246,PN-20417,"Bearing pack, mud motor",Middle East,1154.5,worn
+BP-0247,PN-20417,"Bearing pack, mud motor",Middle East,1280.6,
+BP-0248,PN-20417,"Bearing pack, mud motor",Middle East,940.7,washout
+BP-0249,PN-20417,"Bearing pack, mud motor",Middle East,1252.8,worn
+BP-0250,PN-20417,"Bearing pack, mud motor",Middle East,1995.0,worn
+BP-0251,PN-20417,"Bearing pack, mud motor",West Africa,621.2,
+BP-0252,PN-20417,"Bearing pack, mud motor",West Africa,1375.1,cracked
+BP-0253,PN-20417,"Bearing pack, mud motor",West Africa,1070.0,worn
+BP-0254,PN-20417,"Bearing pack, mud motor",West Africa,436.2,
+BP-0255,PN-20417,"Bearing pack, mud motor",West Africa,503.6,washout
+BP-0256,PN-20417,"Bearing pack, mud motor",West Africa,626.0,worn
+BP-0257,PN-20417,"Bearing pack, mud motor",West Africa,856.7,worn
+BP-0258,PN-20417,"Bearing pack, mud motor",West Africa,280.0,cracked
+BP-0259,PN-20417,"Bearing pack, mud motor",West Africa,1046.7,worn
+BP-0260,PN-20417,"Bearing pack, mud motor",West Africa,659.4,worn
+BP-0261,PN-20417,"Bearing pack, mud motor",West Africa,248.0,washout
+BP-0262,PN-20417,"Bearing pack, mud motor",West Africa,984.6,washout
+BP-0263,PN-20417,"Bearing pack, mud motor",West Africa,567.3,worn
+BP-0264,PN-20417,"Bearing pack, mud motor",West Africa,952.8,worn
+BP-0265,PN-20417,"Bearing pack, mud motor",West Africa,316.6,worn
+BP-0266,PN-20417,"Bearing pack, mud motor",West Africa,530.7,cracked
+BP-0267,PN-20417,"Bearing pack, mud motor",West Africa,1326.2,worn
+BP-0268,PN-20417,"Bearing pack, mud motor",West Africa,823.9,washout
+BP-0269,PN-20417,"Bearing pack, mud motor",West Africa,840.0,washout
+BP-0270,PN-20417,"Bearing pack, mud motor",West Africa,73.0,
+BP-0271,PN-20417,"Bearing pack, mud motor",West Africa,1502.6,worn
+BP-0272,PN-20417,"Bearing pack, mud motor",West Africa,1424.9,worn
+BP-0273,PN-20417,"Bearing pack, mud motor",West Africa,639.2,worn
+BP-0274,PN-20417,"Bearing pack, mud motor",West Africa,1385.1,worn
+BP-0275,PN-20417,"Bearing pack, mud motor",West Africa,513.7,worn
+BP-0276,PN-20417,"Bearing pack, mud motor",West Africa,228.8,lost in hole
+BP-0277,PN-20417,"Bearing pack, mud motor",West Africa,766.6,worn
+BP-0278,PN-20417,"Bearing pack, mud motor",West Africa,704.4,
+BP-0279,PN-20417,"Bearing pack, mud motor",West Africa,18.9,handling damage
+BP-0280,PN-20417,"Bearing pack, mud motor",West Africa,629.8,
+BP-0281,PN-20417,"Bearing pack, mud motor",West Africa,596.0,worn
+BP-0282,PN-20417,"Bearing pack, mud motor",West Africa,683.9,worn
+BP-0283,PN-20417,"Bearing pack, mud motor",West Africa,894.7,worn
+BP-0284,PN-20417,"Bearing pack, mud motor",West Africa,1070.0,
+BP-0285,PN-20417,"Bearing pack, mud motor",West Africa,1245.5,washout
+BP-0286,PN-20417,"Bearing pack, mud motor",West Africa,582.6,worn
+BP-0287,PN-20417,"Bearing pack, mud motor",West Africa,872.7,worn
+BP-0288,PN-20417,"Bearing pack, mud motor",West Africa,1027.0,washout
+BP-0289,PN-20417,"Bearing pack, mud motor",West Africa,757.8,worn
+BP-0290,PN-20417,"Bearing pack, mud motor",West Africa,392.9,worn
+BP-0291,PN-20417,"Bearing pack, mud motor",West Africa,997.0,
+BP-0292,PN-20417,"Bearing pack, mud motor",West Africa,330.4,cracked
+BP-0293,PN-20417,"Bearing pack, mud motor",West Africa,1165.8,worn
+BP-0294,PN-20417,"Bearing pack, mud motor",West Africa,621.0,cracked
+BP-0295,PN-20417,"Bearing pack, mud motor",West Africa,1584.2,worn
+BP-0296,PN-20417,"Bearing pack, mud motor",West Africa,1072.8,handling damage
+BP-0297,PN-20417,"Bearing pack, mud motor",West Africa,126.8,
+BP-0298,PN-20417,"Bearing pack, mud motor",West Africa,613.2,lost in hole
+BP-0299,PN-20417,"Bearing pack, mud motor",West Africa,425.0,worn
+BP-0300,PN-20417,"Bearing pack, mud motor",West Africa,838.4,worn
+BP-0301,PN-20417,"Bearing pack, mud motor",West Africa,269.0,worn
+BP-0302,PN-20417,"Bearing pack, mud motor",West Africa,214.6,lost in hole
+BP-0303,PN-20417,"Bearing pack, mud motor",West Africa,340.9,worn
+BP-0304,PN-20417,"Bearing pack, mud motor",West Africa,629.7,cracked
+BP-0305,PN-20417,"Bearing pack, mud motor",West Africa,1138.2,worn
+BP-0306,PN-20417,"Bearing pack, mud motor",West Africa,298.1,
+BP-0307,PN-20417,"Bearing pack, mud motor",West Africa,964.3,cracked
+BP-0308,PN-20417,"Bearing pack, mud motor",West Africa,347.4,washout
+BP-0309,PN-20417,"Bearing pack, mud motor",West Africa,1333.2,worn
+BP-0310,PN-20417,"Bearing pack, mud motor",West Africa,590.0,obsolete revision
+BP-0311,PN-20417,"Bearing pack, mud motor",West Africa,1701.3,worn
+BP-0312,PN-20417,"Bearing pack, mud motor",West Africa,192.1,
+BP-0313,PN-20417,"Bearing pack, mud motor",West Africa,714.7,worn
+BP-0314,PN-20417,"Bearing pack, mud motor",West Africa,2125.3,worn
+BP-0315,PN-20417,"Bearing pack, mud motor",West Africa,1157.8,worn
+BP-0316,PN-20417,"Bearing pack, mud motor",West Africa,1384.2,worn
+BP-0317,PN-20417,"Bearing pack, mud motor",West Africa,1000.4,worn
+BP-0318,PN-20417,"Bearing pack, mud motor",West Africa,341.9,
+BP-0319,PN-20417,"Bearing pack, mud motor",West Africa,735.7,washout
+BP-0320,PN-20417,"Bearing pack, mud motor",West Africa,430.5,cracked
+BP-0321,PN-20417,"Bearing pack, mud motor",West Africa,524.0,cracked
+BP-0322,PN-20417,"Bearing pack, mud motor",West Africa,506.4,worn
+BP-0323,PN-20417,"Bearing pack, mud motor",West Africa,1329.2,worn
+BP-0324,PN-20417,"Bearing pack, mud motor",West Africa,203.3,
+BP-0325,PN-20417,"Bearing pack, mud motor",West Africa,636.9,cracked
+BP-0326,PN-20417,"Bearing pack, mud motor",West Africa,1077.5,worn
+BP-0327,PN-20417,"Bearing pack, mud motor",West Africa,588.3,worn
+BP-0328,PN-20417,"Bearing pack, mud motor",West Africa,1011.6,cracked
+BP-0329,PN-20417,"Bearing pack, mud motor",West Africa,792.4,
+BP-0330,PN-20417,"Bearing pack, mud motor",West Africa,895.2,worn
+BP-0331,PN-20417,"Bearing pack, mud motor",West Africa,786.2,cracked
+BP-0332,PN-20417,"Bearing pack, mud motor",West Africa,1227.1,worn
+BP-0333,PN-20417,"Bearing pack, mud motor",West Africa,337.0,lost in hole
+BP-0334,PN-20417,"Bearing pack, mud motor",West Africa,759.8,worn
+BP-0335,PN-20417,"Bearing pack, mud motor",West Africa,79.1,lost in hole
+BP-0336,PN-20417,"Bearing pack, mud motor",West Africa,777.8,
+BP-0337,PN-20417,"Bearing pack, mud motor",West Africa,352.0,worn
+BP-0338,PN-20417,"Bearing pack, mud motor",West Africa,274.4,worn
+BP-0339,PN-20417,"Bearing pack, mud motor",West Africa,313.6,worn
+BP-0340,PN-20417,"Bearing pack, mud motor",West Africa,938.5,
+BP-0341,PN-20417,"Bearing pack, mud motor",West Africa,876.2,worn
+BP-0342,PN-20417,"Bearing pack, mud motor",West Africa,337.6,worn
+BP-0343,PN-20417,"Bearing pack, mud motor",West Africa,791.4,worn
+BP-0344,PN-20417,"Bearing pack, mud motor",West Africa,481.5,
+BP-0345,PN-20417,"Bearing pack, mud motor",West Africa,475.4,cracked
+BP-0346,PN-20417,"Bearing pack, mud motor",West Africa,323.6,lost in hole
+BP-0347,PN-20417,"Bearing pack, mud motor",West Africa,890.9,washout
+BP-0348,PN-20417,"Bearing pack, mud motor",West Africa,58.9,obsolete revision
+BP-0349,PN-20417,"Bearing pack, mud motor",West Africa,895.8,
+BP-0350,PN-20417,"Bearing pack, mud motor",West Africa,569.2,cracked
+BP-0351,PN-20417,"Bearing pack, mud motor",North America land,503.9,lost in hole
+BP-0352,PN-20417,"Bearing pack, mud motor",North America land,869.1,worn
+BP-0353,PN-20417,"Bearing pack, mud motor",North America land,834.3,handling damage
+BP-0354,PN-20417,"Bearing pack, mud motor",North America land,1191.5,worn
+BP-0355,PN-20417,"Bearing pack, mud motor",North America land,404.7,
+BP-0356,PN-20417,"Bearing pack, mud motor",North America land,662.3,lost in hole
+BP-0357,PN-20417,"Bearing pack, mud motor",North America land,1166.9,obsolete revision
+BP-0358,PN-20417,"Bearing pack, mud motor",North America land,604.5,washout
+BP-0359,PN-20417,"Bearing pack, mud motor",North America land,1166.5,washout
+BP-0360,PN-20417,"Bearing pack, mud motor",North America land,897.7,worn
+BP-0361,PN-20417,"Bearing pack, mud motor",North America land,1242.4,worn
+BP-0362,PN-20417,"Bearing pack, mud motor",North America land,383.1,
+BP-0363,PN-20417,"Bearing pack, mud motor",North America land,540.2,
+BP-0364,PN-20417,"Bearing pack, mud motor",North America land,1128.0,worn
+BP-0365,PN-20417,"Bearing pack, mud motor",North America land,311.0,
+BP-0366,PN-20417,"Bearing pack, mud motor",North America land,380.2,
+BP-0367,PN-20417,"Bearing pack, mud motor",North America land,1668.1,worn
+BP-0368,PN-20417,"Bearing pack, mud motor",North America land,727.1,worn
+BP-0369,PN-20417,"Bearing pack, mud motor",North America land,167.2,
+BP-0370,PN-20417,"Bearing pack, mud motor",North America land,1850.3,cracked
+BP-0371,PN-20417,"Bearing pack, mud motor",North America land,466.9,
+BP-0372,PN-20417,"Bearing pack, mud motor",North America land,869.8,worn
+BP-0373,PN-20417,"Bearing pack, mud motor",North America land,969.9,cracked
+BP-0374,PN-20417,"Bearing pack, mud motor",North America land,1679.9,cracked
+BP-0375,PN-20417,"Bearing pack, mud motor",North America land,727.9,worn
+BP-0376,PN-20417,"Bearing pack, mud motor",North America land,601.7,
+BP-0377,PN-20417,"Bearing pack, mud motor",North America land,1420.1,cracked
+BP-0378,PN-20417,"Bearing pack, mud motor",North America land,545.8,cracked
+BP-0379,PN-20417,"Bearing pack, mud motor",North America land,229.8,
+BP-0380,PN-20417,"Bearing pack, mud motor",North America land,637.9,
+BP-0381,PN-20417,"Bearing pack, mud motor",North America land,1002.1,handling damage
+BP-0382,PN-20417,"Bearing pack, mud motor",North America land,1307.6,worn
+BP-0383,PN-20417,"Bearing pack, mud motor",North America land,1100.7,washout
+BP-0384,PN-20417,"Bearing pack, mud motor",North America land,827.1,washout
+BP-0385,PN-20417,"Bearing pack, mud motor",North America land,1049.1,
+BP-0386,PN-20417,"Bearing pack, mud motor",North America land,1238.7,
+BP-0387,PN-20417,"Bearing pack, mud motor",North America land,91.2,lost in hole
+BP-0388,PN-20417,"Bearing pack, mud motor",North America land,650.5,washout
+BP-0389,PN-20417,"Bearing pack, mud motor",North America land,1329.4,washout
+BP-0390,PN-20417,"Bearing pack, mud motor",North America land,336.6,
+BP-0391,PN-20417,"Bearing pack, mud motor",North America land,1650.5,
+BP-0392,PN-20417,"Bearing pack, mud motor",North America land,2010.1,obsolete revision
+BP-0393,PN-20417,"Bearing pack, mud motor",North America land,1037.7,
+BP-0394,PN-20417,"Bearing pack, mud motor",North America land,1597.9,lost in hole
+BP-0395,PN-20417,"Bearing pack, mud motor",North America land,383.7,washout
+BP-0396,PN-20417,"Bearing pack, mud motor",North America land,596.5,
+BP-0397,PN-20417,"Bearing pack, mud motor",North America land,229.6,lost in hole
+BP-0398,PN-20417,"Bearing pack, mud motor",North America land,1125.3,worn
+BP-0399,PN-20417,"Bearing pack, mud motor",North America land,657.7,lost in hole
+BP-0400,PN-20417,"Bearing pack, mud motor",North America land,1860.6,
+BP-0401,PN-20417,"Bearing pack, mud motor",North America land,574.0,lost in hole
+BP-0402,PN-20417,"Bearing pack, mud motor",North America land,1675.9,worn
+BP-0403,PN-20417,"Bearing pack, mud motor",North America land,540.2,
+BP-0404,PN-20417,"Bearing pack, mud motor",North America land,493.6,
+BP-0405,PN-20417,"Bearing pack, mud motor",North America land,2086.4,cracked
+BP-0406,PN-20417,"Bearing pack, mud motor",North America land,952.1,
+BP-0407,PN-20417,"Bearing pack, mud motor",North America land,1278.3,worn
+BP-0408,PN-20417,"Bearing pack, mud motor",North America land,1038.0,handling damage
+BP-0409,PN-20417,"Bearing pack, mud motor",North America land,1070.7,worn
+BP-0410,PN-20417,"Bearing pack, mud motor",North America land,968.3,washout
+BP-0411,PN-20417,"Bearing pack, mud motor",North America land,703.2,washout
+BP-0412,PN-20417,"Bearing pack, mud motor",North America land,1928.9,worn
+BP-0413,PN-20417,"Bearing pack, mud motor",North America land,887.3,worn
+BP-0414,PN-20417,"Bearing pack, mud motor",North America land,1691.1,cracked
+BP-0415,PN-20417,"Bearing pack, mud motor",North America land,657.3,
+BP-0416,PN-20417,"Bearing pack, mud motor",North America land,2118.5,
+BP-0417,PN-20417,"Bearing pack, mud motor",North America land,61.8,
+BP-0418,PN-20417,"Bearing pack, mud motor",North America land,848.7,worn
+BP-0419,PN-20417,"Bearing pack, mud motor",North America land,253.7,
+BP-0420,PN-20417,"Bearing pack, mud motor",North America land,961.7,
+BP-0421,PN-20417,"Bearing pack, mud motor",North America land,436.1,
+BP-0422,PN-20417,"Bearing pack, mud motor",North America land,1537.1,washout
+BP-0423,PN-20417,"Bearing pack, mud motor",North America land,1414.5,obsolete revision
+BP-0424,PN-20417,"Bearing pack, mud motor",North America land,1731.0,worn
+BP-0425,PN-20417,"Bearing pack, mud motor",North America land,1859.4,washout
+BP-0426,PN-20417,"Bearing pack, mud motor",North America land,1426.2,cracked
+BP-0427,PN-20417,"Bearing pack, mud motor",North America land,960.0,obsolete revision
+BP-0428,PN-20417,"Bearing pack, mud motor",North America land,1372.5,
+BP-0429,PN-20417,"Bearing pack, mud motor",North America land,898.2,
+BP-0430,PN-20417,"Bearing pack, mud motor",North America land,199.5,handling damage
+BP-0431,PN-20417,"Bearing pack, mud motor",North America land,750.7,washout
+BP-0432,PN-20417,"Bearing pack, mud motor",North America land,1435.5,worn
+BP-0433,PN-20417,"Bearing pack, mud motor",North America land,1588.2,washout
+BP-0434,PN-20417,"Bearing pack, mud motor",North America land,973.7,
+BP-0435,PN-20417,"Bearing pack, mud motor",North America land,492.4,
+BP-0436,PN-20417,"Bearing pack, mud motor",North America land,1876.4,worn
+BP-0437,PN-20417,"Bearing pack, mud motor",North America land,866.1,worn
+BP-0438,PN-20417,"Bearing pack, mud motor",North America land,1445.6,worn
+BP-0439,PN-20417,"Bearing pack, mud motor",North America land,959.5,
+BP-0440,PN-20417,"Bearing pack, mud motor",North America land,1448.6,washout
+BP-0441,PN-20417,"Bearing pack, mud motor",North America land,964.4,worn
+BP-0442,PN-20417,"Bearing pack, mud motor",North America land,658.1,
+BP-0443,PN-20417,"Bearing pack, mud motor",North America land,625.8,worn
+BP-0444,PN-20417,"Bearing pack, mud motor",North America land,1005.0,washout
+BP-0445,PN-20417,"Bearing pack, mud motor",North America land,694.3,
+BP-0446,PN-20417,"Bearing pack, mud motor",North America land,961.1,worn
+BP-0447,PN-20417,"Bearing pack, mud motor",North America land,276.4,worn
+BP-0448,PN-20417,"Bearing pack, mud motor",North America land,1721.8,washout
+BP-0449,PN-20417,"Bearing pack, mud motor",North America land,915.3,worn
+BP-0450,PN-20417,"Bearing pack, mud motor",North America land,1036.3,
+BP-0451,PN-20417,"Bearing pack, mud motor",North America land,329.0,
+BP-0452,PN-20417,"Bearing pack, mud motor",North America land,977.2,
+BP-0453,PN-20417,"Bearing pack, mud motor",North America land,696.2,
+BP-0454,PN-20417,"Bearing pack, mud motor",North America land,2139.2,washout
+BP-0455,PN-20417,"Bearing pack, mud motor",North America land,632.3,washout
+BP-0456,PN-20417,"Bearing pack, mud motor",North America land,596.8,
+BP-0457,PN-20417,"Bearing pack, mud motor",North America land,438.5,cracked
+BP-0458,PN-20417,"Bearing pack, mud motor",North America land,327.7,
+BP-0459,PN-20417,"Bearing pack, mud motor",North America land,525.1,lost in hole
+BP-0460,PN-20417,"Bearing pack, mud motor",North America land,1655.3,cracked
+BP-0461,PN-20417,"Bearing pack, mud motor",North America land,510.1,worn
+BP-0462,PN-20417,"Bearing pack, mud motor",North America land,150.6,worn
+BP-0463,PN-20417,"Bearing pack, mud motor",North America land,355.4,
+BP-0464,PN-20417,"Bearing pack, mud motor",North America land,1303.0,worn
+BP-0465,PN-20417,"Bearing pack, mud motor",North America land,756.0,lost in hole
+BP-0466,PN-20417,"Bearing pack, mud motor",North America land,506.3,washout
+BP-0467,PN-20417,"Bearing pack, mud motor",North America land,498.1,
+BP-0468,PN-20417,"Bearing pack, mud motor",North America land,850.1,cracked
+BP-0469,PN-20417,"Bearing pack, mud motor",North America land,949.2,
+BP-0470,PN-20417,"Bearing pack, mud motor",North America land,887.5,

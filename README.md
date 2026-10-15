@@ -6,9 +6,11 @@ How long do parts really last, does it depend on where they run, and what will r
 
 ## Where this comes from
 
-In a technical manufacturing rotation I built a MATLAB lifetime analysis tool. It modelled the life of scrapped and non-scrapped parts in circulating hours with a Weibull distribution and maximum likelihood (`wblfit` with a censoring vector and 95% confidence), derived censoring from scrap reasons, compared failure trends between locations, and fed its statistics into a lifetime costing tool and into event-based maintenance planning.
+In a technical manufacturing rotation of a supply chain leadership programme I built a MATLAB lifetime analysis tool. It modelled the life of scrapped and non-scrapped parts in circulating hours with a Weibull distribution and maximum likelihood (`wblfit` with a censoring vector and 95% confidence), derived censoring from scrap reasons, compared failure trends between locations, and fed its statistics into a lifetime costing tool and into event-based maintenance planning.
 
 This project rebuilds that tool in Python as a tested library, a command line and a web app, using the same conventions. **The sample data is synthetic**: one part number in four regions, generated from known Weibull parameters by `scripts/make_sample_data.py`.
+
+> **Independent personal project.** I built this on my own time, after my employment ended, to show the kind of work I did professionally. It contains no code, data, documents, screenshots or other information belonging to any former employer, its customers or its suppliers. The method is rebuilt from general professional knowledge, all data in the repository is synthetic, and the only figures quoted from my career are the ones published on my CV.
 
 ## The key idea: censoring from scrap reasons
 

@@ -98,6 +98,9 @@ with st.sidebar:
     failure_cost = st.number_input("Cost of an in-service failure, €", 1.0, value=21000.0, step=500.0)
 
 st.title("Lifetime analysis tool")
+st.caption(
+    "Independent personal project with synthetic sample data; it contains no information from any former employer."
+)
 
 if source.startswith("Upload") and upload is None:
     st.info(

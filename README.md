@@ -60,6 +60,8 @@ Likelihood ratio test: 57.8 on 6 df, p = 1.24e-10. Part life differs between loc
 
 ![Share of parts still running by location](docs/locations.png)
 
+**Failure-free period.** `fit --failure-free` adds the three-parameter Weibull, for parts that cannot wear out before a minimum age. The model is profiled over the failure-free period γ, and a likelihood-ratio test against γ = 0 decides whether it is real. Because γ = 0 sits on the edge of the allowed range, the p-value is halved. The case where the shape is below 1, in which the likelihood has no maximum, is refused rather than reported as a number. On the sample data the test finds about 120 CH, but the sample pools four locations with different lives. A mixture can look like a failure-free period, so the output says to check `locations` first.
+
 **3. Lifetime cost.** Cost per circulating hour (purchase plus replacement, less salvage, over the mean life) and the expected replacement spend for the parts in service over a horizon, with replacements that wear out again included by simulation. It also shows what the forecast would have been with the naive scrapped-only model: on the sample, **32% too high**.
 
 ![Expected replacement spend, censored model against scrapped parts only](docs/lifetime-cost.png)
@@ -75,6 +77,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -e ".[app,dev]"
 
 weibull-spares fit data/parts_register.csv
+weibull-spares fit data/parts_register.csv --failure-free
 weibull-spares locations data/parts_register.csv
 weibull-spares cost data/parts_register.csv --unit-cost 3950 --replacement-cost 1200 --salvage 150
 weibull-spares spares data/parts_register.csv --lead-time-days 21
@@ -112,7 +115,7 @@ app/streamlit_app.py             the web app
 
 ## Assumptions and limits
 
-- Two-parameter Weibull. A failure-free period would need the three-parameter form.
+- The failure-free period is fitted on request and used for reporting. Cost, spares and replacement-age calculations still use the two-parameter model.
 - One failure mode per analysis. Mixed modes (for example seal wear and bearing wear) should be separated by scrap reason first.
 - Circulating hours per part per day are a fleet average in the spares calculation.
 

@@ -1,4 +1,4 @@
-"""Two-parameter Weibull model and fitting from field data with suspensions.
+"""Weibull model and fitting from field data with suspensions.
 
 Field data is almost always censored: most units have not failed yet, they have
 only been running for a while ("suspensions"). Ignoring them biases life
@@ -217,3 +217,84 @@ def fit(times: ArrayLike, failed: ArrayLike, method: Method = "mle") -> Fit:
     if method == "rank_regression":
         return fit_rank_regression(times, failed)
     raise ValueError(f"unknown method {method!r}")
+
+
+@dataclass(frozen=True)
+class ThreeParameterFit:
+    """Weibull with a failure-free period: no part fails before ``gamma`` hours.
+
+    ``fit`` describes the hours *after* ``gamma``, so a part's probability of
+    failing by age ``t`` is ``fit.model.cdf(t - gamma)``.
+    """
+
+    gamma: float
+    fit: Fit
+    two_parameter: Fit
+    #: 2 · (three-parameter − two-parameter log-likelihood)
+    lr_statistic: float
+    #: Against "no failure-free period". gamma = 0 lies on the boundary, so the
+    #: statistic follows a 50:50 mixture of 0 and chi-square(1), which halves the p-value.
+    p_value: float
+    #: False when every gamma above 0 needs a shape below 1, the degenerate case
+    #: where the likelihood has no maximum. gamma is then 0.
+    supported: bool
+
+    @property
+    def significant(self) -> bool:
+        return self.supported and self.p_value < 0.05
+
+    def cdf(self, t: ArrayLike) -> np.ndarray:
+        return self.fit.model.cdf(np.asarray(t, dtype=float) - self.gamma)
+
+    def b_life(self, fraction: float = 0.10) -> float:
+        return self.gamma + self.fit.model.b_life(fraction)
+
+
+def _shifted_fit(t: np.ndarray, d: np.ndarray, gamma: float) -> Fit:
+    """Two-parameter fit of the hours after ``gamma``.
+
+    Suspensions at or before ``gamma`` survived the failure-free period, which
+    has probability 1, so they add nothing to the likelihood and are dropped.
+    """
+    keep = t > gamma
+    return fit_mle(t[keep] - gamma, d[keep])
+
+
+def fit_mle_3p(times: ArrayLike, failed: ArrayLike, grid: int = 60) -> ThreeParameterFit:
+    """Maximum likelihood with a failure-free period ``gamma``.
+
+    For a fixed gamma the best shape and scale come from the two-parameter fit
+    of the shifted times, so the likelihood is profiled over gamma alone, on
+    [0, first failure). A coarse grid finds the region and a bounded search
+    refines it, since the profile can have more than one bump.
+
+    With a shape below 1 the density is infinite at gamma, so the likelihood
+    can be made arbitrarily large by moving gamma up to the first failure. That
+    is not evidence of a failure-free period, so only gamma > 0 with a shape of
+    at least 1 is considered.
+    """
+    t, d = _validate(times, failed)
+    two = fit_mle(t, d)
+    first_failure = float(t[d].min())
+    upper = first_failure * (1 - 1e-6)
+
+    def nll(gamma: float) -> float:
+        f = _shifted_fit(t, d, gamma)
+        if gamma > 0 and f.model.beta < 1:
+            return np.inf
+        return -f.log_likelihood
+
+    gammas = np.linspace(0.0, upper, grid)
+    values = np.array([nll(g) for g in gammas])
+    supported = bool(np.isfinite(values[1:]).any())
+    i = int(np.argmin(values))
+    gamma = float(gammas[i])
+    if 0 < i:
+        lo, hi = gammas[i - 1], gammas[min(i + 1, grid - 1)]
+        best = optimize.minimize_scalar(nll, bounds=(lo, hi), method="bounded", options={"xatol": first_failure * 1e-6})
+        if np.isfinite(best.fun) and best.fun <= values[i]:
+            gamma = float(best.x)
+    three = _shifted_fit(t, d, gamma) if gamma > 0 else two
+    lr = max(0.0, 2 * (three.log_likelihood - two.log_likelihood))
+    p = 1.0 if lr == 0 else 0.5 * float(stats.chi2.sf(lr, 1))
+    return ThreeParameterFit(gamma, three, two, lr, p, supported)

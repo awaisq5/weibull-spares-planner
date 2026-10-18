@@ -74,3 +74,13 @@ def test_json_errors_still_go_to_stderr(tmp_path, capsys):
     captured = capsys.readouterr()
     assert captured.out == ""
     assert "Unknown scrap reason" in captured.err
+
+
+def test_fit_can_test_for_a_failure_free_period(capsys):
+    assert main(["fit", PARTS, "--failure-free"]) == 0
+    out = capsys.readouterr().out
+    assert "Failure-free period (three-parameter Weibull)" in out
+    assert "against no failure-free period" in out
+    three = _json(capsys, "fit", PARTS, "--failure-free")["three_parameter"]
+    assert {"gamma_hours", "beta", "eta_hours", "b10_hours", "p_value", "significant", "supported"} <= three.keys()
+    assert 0 <= three["gamma_hours"] < min(load_parts(PARTS).hours[load_parts(PARTS).failed])

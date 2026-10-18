@@ -10,6 +10,7 @@ from weibull_spares import (
     compare_locations,
     event_plan,
     fit_mle,
+    fit_mle_3p,
     fit_rank_regression,
     lead_time_demand,
     lifetime_cost,
@@ -212,3 +213,46 @@ class TestCosting:
         plan = event_plan(Weibull(3.0, 1200.0), ages, 200, 4)
         assert plan.next_up[0] == 1
         assert plan.per_period.sum() <= len(ages)
+
+
+def sample_with_failure_free_period(beta, eta, gamma, n, censor_at, seed):
+    rng = np.random.default_rng(seed)
+    life = gamma + eta * rng.weibull(beta, n)
+    removal = rng.uniform(0.2, 1.0, n) * censor_at
+    failed = life <= removal
+    return np.where(failed, life, removal), failed
+
+
+class TestThreeParameter:
+    def test_recovers_a_failure_free_period_and_finds_it_significant(self):
+        t, d = sample_with_failure_free_period(2.0, 1000, 500, 400, 2500, seed=2)
+        r = fit_mle_3p(t, d)
+        assert r.supported and r.significant
+        assert r.gamma == pytest.approx(500, rel=0.1)
+        assert r.fit.model.beta == pytest.approx(2.0, rel=0.15)
+        assert r.gamma < t[d].min()
+        assert r.fit.log_likelihood > r.two_parameter.log_likelihood
+
+    def test_keeps_the_two_parameter_model_when_there_is_no_failure_free_period(self):
+        t, d = censored_sample(2.0, 1000, 400, 2500, seed=3)
+        r = fit_mle_3p(t, d)
+        assert not r.significant
+        assert r.gamma == pytest.approx(0, abs=50)
+
+    def test_refuses_the_degenerate_case_of_early_life_failures(self):
+        t, d = censored_sample(0.7, 1000, 400, 2500, seed=4)
+        r = fit_mle_3p(t, d)
+        assert not r.supported and not r.significant
+        assert r.gamma == 0
+        assert r.fit is r.two_parameter
+
+    def test_no_failures_before_gamma_and_b10_includes_it(self):
+        t, d = sample_with_failure_free_period(2.0, 1000, 500, 400, 2500, seed=2)
+        r = fit_mle_3p(t, d)
+        assert r.cdf([0, r.gamma * 0.99]).tolist() == [0.0, 0.0]
+        assert r.cdf(r.b_life(0.10)) == pytest.approx(0.10)
+
+    def test_boundary_p_value_is_half_the_chi_square_tail(self):
+        t, d = sample_with_failure_free_period(2.0, 1000, 300, 300, 2500, seed=5)
+        r = fit_mle_3p(t, d)
+        assert r.p_value == pytest.approx(0.5 * stats.chi2.sf(r.lr_statistic, 1))

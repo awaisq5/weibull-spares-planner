@@ -22,7 +22,7 @@ from .data import DataError, PartsRegister, load_parts
 from .forecast import lead_time_demand, renewal_share
 from .locations import compare_locations
 from .stocking import cost_optimal_stock, optimal_replacement_age, stock_for_service_level, stock_options
-from .weibull import Fit, fit, fit_mle
+from .weibull import Fit, ThreeParameterFit, fit, fit_mle, fit_mle_3p
 
 
 def _print_fit(f: Fit, label: str = "") -> None:
@@ -64,6 +64,35 @@ def _fit_dict(f: Fit) -> dict[str, Any]:
     return out
 
 
+def _three_dict(t: ThreeParameterFit) -> dict[str, Any]:
+    return {
+        "supported": t.supported,
+        "gamma_hours": t.gamma,
+        "beta": t.fit.model.beta,
+        "eta_hours": t.fit.model.eta,
+        "b10_hours": t.b_life(0.10),
+        "lr_statistic": t.lr_statistic,
+        "p_value": t.p_value,
+        "significant": t.significant,
+    }
+
+
+def _print_three(t: ThreeParameterFit) -> None:
+    print("\nFailure-free period (three-parameter Weibull)")
+    if not t.supported:
+        print("  not supported    the shape is below 1, so parts fail early rather than after a minimum age")
+        return
+    print(f"  gamma            {t.gamma:,.0f} CH, no part fails before this")
+    print(f"  after gamma      shape beta {t.fit.model.beta:.2f}, scale eta {t.fit.model.eta:,.0f} CH")
+    print(f"  B10 life         {t.b_life(0.10):,.0f} CH")
+    print(f"  test             LR {t.lr_statistic:.1f}, p = {t.p_value:.3g} against no failure-free period")
+    if t.significant:
+        print("  reading          the failure-free period fits clearly better. Mixed locations or failure modes")
+        print("                   can look like one too: check `locations` before relying on it.")
+    else:
+        print("  reading          no evidence of a failure-free period; keep the two-parameter model.")
+
+
 def _emit(data: dict[str, Any]) -> None:
     # NumPy scalars are not JSON types; .item() turns them into plain Python numbers.
     print(json.dumps(data, indent=2, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
@@ -84,6 +113,9 @@ def main(argv: list[str] | None = None) -> int:
     p_fit = sub.add_parser("fit", help="fit a Weibull model to the parts register")
     p_fit.add_argument("parts", help="CSV with part_id, part_number, location, circulating_hours, scrap_reason")
     p_fit.add_argument("--method", choices=["mle", "rank_regression"], default="mle")
+    p_fit.add_argument(
+        "--failure-free", action="store_true", help="also fit a failure-free period (three-parameter Weibull)"
+    )
 
     p_loc = sub.add_parser("locations", help="compare part life between locations")
     p_loc.add_argument("parts")
@@ -116,16 +148,21 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "fit":
             fitted = fit(parts.hours, parts.failed, args.method)
             naive = _naive(parts).model if args.method == "mle" else None
+            three = fit_mle_3p(parts.hours, parts.failed) if args.failure_free else None
             if args.json:
                 result = _fit_dict(fitted)
                 if naive:
                     result["naive"] = {"beta": naive.beta, "eta_hours": naive.eta}
+                if three:
+                    result["three_parameter"] = _three_dict(three)
                 _emit(result)
                 return 0
             _print_fit(fitted)
             if naive:
                 print("\nIf every scrapped part counted as a failure and parts in service were ignored:")
                 print(f"  scale eta        {naive.eta:,.0f} CH, shape beta {naive.beta:.2f}")
+            if three:
+                _print_three(three)
             return 0
 
         model = fit_mle(parts.hours, parts.failed).model

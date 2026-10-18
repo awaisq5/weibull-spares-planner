@@ -4,12 +4,16 @@ weibull-spares fit data/parts_register.csv
 weibull-spares locations data/parts_register.csv
 weibull-spares cost data/parts_register.csv --unit-cost 3950 --horizon 1000
 weibull-spares spares data/parts_register.csv --lead-time-days 21
+
+Add --json to any command for one JSON object instead of text.
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import sys
+from typing import Any
 
 import numpy as np
 
@@ -37,6 +41,32 @@ def _print_fit(f: Fit, label: str = "") -> None:
     print(f"  B10 life         {m.b_life(0.10):,.0f} CH")
     print(f"  mean life        {m.mean_life():,.0f} CH")
     print(f"  reading          {m.failure_mode()}")
+
+
+def _fit_dict(f: Fit) -> dict[str, Any]:
+    m = f.model
+    out: dict[str, Any] = {
+        "method": f.method,
+        "failures": f.failures,
+        "suspensions": f.suspensions,
+        "beta": m.beta,
+        "eta_hours": m.eta,
+        "b10_hours": m.b_life(0.10),
+        "mean_life_hours": m.mean_life(),
+        "failure_mode": m.failure_mode(),
+        "log_likelihood": f.log_likelihood,
+    }
+    if f.bounds:
+        out["bounds_95"] = {
+            "beta": list(f.bounds["beta"]),
+            "eta_hours": list(f.bounds["eta"]),
+        }
+    return out
+
+
+def _emit(data: dict[str, Any]) -> None:
+    # NumPy scalars are not JSON types; .item() turns them into plain Python numbers.
+    print(json.dumps(data, indent=2, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
 
 
 def _naive(p: PartsRegister) -> Fit:
@@ -76,14 +106,24 @@ def main(argv: list[str] | None = None) -> int:
     p_sp.add_argument("--preventive-cost", type=float, default=4600, help="cost of a planned replacement")
     p_sp.add_argument("--failure-cost", type=float, default=21000, help="cost of an in-service failure")
 
+    for p in (p_fit, p_loc, p_cost, p_sp):
+        p.add_argument("--json", action="store_true", help="print one JSON object instead of text")
+
     args = parser.parse_args(argv)
     try:
         parts = load_parts(args.parts)
 
         if args.command == "fit":
-            _print_fit(fit(parts.hours, parts.failed, args.method))
-            if args.method == "mle":
-                naive = _naive(parts).model
+            fitted = fit(parts.hours, parts.failed, args.method)
+            naive = _naive(parts).model if args.method == "mle" else None
+            if args.json:
+                result = _fit_dict(fitted)
+                if naive:
+                    result["naive"] = {"beta": naive.beta, "eta_hours": naive.eta}
+                _emit(result)
+                return 0
+            _print_fit(fitted)
+            if naive:
                 print("\nIf every scrapped part counted as a failure and parts in service were ignored:")
                 print(f"  scale eta        {naive.eta:,.0f} CH, shape beta {naive.beta:.2f}")
             return 0
@@ -93,6 +133,26 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.command == "locations":
             c = compare_locations(parts.hours, parts.failed, parts.location)
+            if args.json:
+                _emit(
+                    {
+                        "locations": [
+                            {
+                                "location": loc.location,
+                                "parts": loc.parts,
+                                "failures": loc.failures,
+                                "fit": _fit_dict(loc.fit) if loc.fit else None,
+                            }
+                            for loc in c.locations
+                        ],
+                        "pooled": _fit_dict(c.pooled),
+                        "lr_statistic": c.lr_statistic,
+                        "degrees_of_freedom": c.degrees_of_freedom,
+                        "p_value": c.p_value,
+                        "differs": c.differs,
+                    }
+                )
+                return 0
             print("Location               parts  worn out   beta   eta (CH)   B10 (CH)")
             for loc in c.locations:
                 if loc.fit:
@@ -111,6 +171,21 @@ def main(argv: list[str] | None = None) -> int:
             lc = lifetime_cost(model, costs, fleet, args.horizon)
             naive = lifetime_cost(_naive(parts).model, costs, fleet, args.horizon)
             plan = event_plan(model, fleet, args.horizon / 4, 4)
+            if args.json:
+                _emit(
+                    {
+                        "parts_in_service": len(fleet),
+                        "horizon_hours": args.horizon,
+                        "cost_per_hour": lc.cost_per_hour,
+                        "expected_events": lc.expected_events,
+                        "expected_cost": lc.expected_cost,
+                        "events_per_1000_hours": lc.events_per_1000_hours,
+                        "first_life_events_per_period": [float(x) for x in plan.per_period],
+                        "period_hours": plan.period_hours,
+                        "naive_expected_cost": naive.expected_cost,
+                    }
+                )
+                return 0
             print(f"{len(fleet)} parts in service, forecast over the next {args.horizon:,.0f} circulating hours")
             print(f"  cost per circulating hour   {lc.cost_per_hour:,.2f}")
             print(f"  expected scrap events       {lc.expected_events:,.1f}")
@@ -131,6 +206,24 @@ def main(argv: list[str] | None = None) -> int:
         target = stock_for_service_level(demand, args.service_level)
         best = cost_optimal_stock(options)
         policy = optimal_replacement_age(model, args.preventive_cost, args.failure_cost)
+        if args.json:
+            _emit(
+                {
+                    "parts_in_service": len(fleet),
+                    "lead_time_days": args.lead_time_days,
+                    "lead_time_hours": horizon,
+                    "expected_events_in_lead_time": demand.expected,
+                    "service_level_target": args.service_level,
+                    "stock_for_service_level": target,
+                    "cost_optimal_stock": best.stock,
+                    "cost_optimal_service_level": best.service_level,
+                    "renewal_share": renewal_share(model, horizon),
+                    "replacement_age_hours": policy.age,
+                    "replacement_cost_per_hour": policy.cost_per_hour,
+                    "run_to_failure_cost_per_hour": policy.run_to_failure_cost_per_hour,
+                }
+            )
+            return 0
         print(
             f"{len(fleet)} parts in service, lead time {args.lead_time_days:g} days ({horizon:,.0f} circulating hours)"
         )

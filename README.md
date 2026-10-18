@@ -78,10 +78,13 @@ weibull-spares fit data/parts_register.csv
 weibull-spares locations data/parts_register.csv
 weibull-spares cost data/parts_register.csv --unit-cost 3950 --replacement-cost 1200 --salvage 150
 weibull-spares spares data/parts_register.csv --lead-time-days 21
+weibull-spares spares data/parts_register.csv --lead-time-days 21 --json   # for reports and dashboards
 
 streamlit run app/streamlit_app.py
 pytest
 ```
+
+Every command takes `--json` and then prints one JSON object with the same numbers, unrounded and with units in the key names (`eta_hours`, `b10_hours`, `cost_optimal_stock`), so the results can feed a spares report or a reorder point without scraping text.
 
 The Streamlit app runs on [Streamlit Community Cloud](https://streamlit.io/cloud) as is: point it at this repository and `app/streamlit_app.py`.
 
